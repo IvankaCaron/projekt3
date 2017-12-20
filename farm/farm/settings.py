@@ -139,6 +139,10 @@ LOGIN_EXEMPT_URLS = (
     #'account/login/',
     'account/logout/',
     'account/register/',
+    'account/reset-password',
+    'account/reset-password/done',
+    'account/reset-password/confirm/<uidb64>/<token>/',
+    'account/reset-password/complete',
 
 )
 
