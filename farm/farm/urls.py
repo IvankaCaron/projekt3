@@ -22,9 +22,9 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    #path('', login_redirect, name='login_redirect'),
+    path('', login_redirect, name='login_redirect'),
     path('admin/', admin.site.urls),
     #url(r'^', include('picker.urls')),
     path(r'', include('picker.urls')),
-    path('account/', include('accounts.urls', )),
+    path('account/', include('accounts.urls')),
     ]
