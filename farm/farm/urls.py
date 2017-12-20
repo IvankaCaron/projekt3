@@ -27,4 +27,4 @@ urlpatterns = [
     #url(r'^', include('picker.urls')),
     path(r'', include('picker.urls')),
     path('account/', include('accounts.urls')),
-    ]
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
