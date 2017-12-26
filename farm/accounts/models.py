@@ -2,6 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
+
+class UserProfileManager(models.Manager):
+    def get_queryset(self):
+        return super(UserProfile, self).get_queryset().filter(city='London')
+
 # Create your models here.
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
@@ -13,6 +18,11 @@ class UserProfile(models.Model):
     website = models.URLField(default='')
     phone = models.IntegerField(default=0)
     image = models.ImageField(upload_to='profile_image', blank=True)
+
+    #pour faire le query que pour London
+    #from accounts.models import UserProfile
+    #UserProfile.london.all()
+    london = UserProfileManager()
 
     def __str__(self):
         return self.user.username

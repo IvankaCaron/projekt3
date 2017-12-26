@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'leaflet',
     'picker',
     'accounts',
+    'home',
 
 
 ]
@@ -137,6 +138,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'farm/media')
 
 
 LOGIN_REDIRECT_URL = '/account/'
+#LOGIN_REDIRECT_URL = '/account/'
 
 LOGIN_URL = '/account/login/'
 

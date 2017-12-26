@@ -12,11 +12,11 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-def home(request):
-    numbers = [1,2,3,4,5]
-    name = 'Ivana Caron'
-    args = {'myName': name, 'numbers' : numbers}
-    return render(request, 'accounts/home.html', args)
+def homeAccount(request):
+   #numbers = [1,2,3,4,5]
+    #name = 'Ivana Caron'
+    #args = {'myName': name, 'numbers' : numbers}
+    return render(request, 'accounts/homeAccount.html')
 
 def register(request):
     if request.method =='POST':
@@ -31,8 +31,14 @@ def register(request):
         return render(request, 'accounts/reg_form.html', args)
 
 
-def view_profile(request):
-    args = {'user' : request.user}
+# pk None to ask for default user
+def view_profile(request, pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+
+    else:
+        user = request.user
+    args = {'user' : user}
     return render(request, 'accounts/profile.html', args)
 
 
