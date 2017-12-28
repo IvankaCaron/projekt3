@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 
 class UserProfileManager(models.Manager):
     def get_queryset(self):
-        return super(UserProfile, self).get_queryset().filter(city='London')
+        return super(UserProfileManager, self).get_queryset().filter(phone=0)
 
 # Create your models here.
 class UserProfile(models.Model):
@@ -19,10 +19,10 @@ class UserProfile(models.Model):
     phone = models.IntegerField(default=0)
     image = models.ImageField(upload_to='profile_image', blank=True)
 
-    #pour faire le query que pour London
+    #pour faire le query que pour noPhone
     #from accounts.models import UserProfile
-    #UserProfile.london.all()
-    london = UserProfileManager()
+    #UserProfile.NoPhone.all()
+    noPhone = UserProfileManager()
 
     def __str__(self):
         return self.user.username

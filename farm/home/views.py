@@ -8,12 +8,14 @@ from .models import Post, Friend
 class HomeView(TemplateView):
     template_name = 'home/homeHome.html'
 
-    def get(self, request, ):
+    def get(self, request ):
         form = HomeForm()
         #to show on my page order by date(-created)
         posts = Post.objects.all().order_by('-created')
         users = User.objects.exclude(id=request.user.id)
         friend = Friend.objects.get(current_user=request.user)
+        friend.save()
+        #ici je dois creer un instace
         friends = friend.users.all()
 
         args = {

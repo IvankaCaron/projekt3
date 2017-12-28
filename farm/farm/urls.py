@@ -25,7 +25,8 @@ urlpatterns = [
     path('', login_redirect, name='login_redirect'),
     path('admin/', admin.site.urls),
     #url(r'^', include('picker.urls')),
-    path(r'', include('picker.urls')),
+    #path(r'', include('picker.urls')),
+    path('map/', include('picker.urls')),
     path('account/', include('accounts.urls')),
     path('home/', include('home.urls')),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
