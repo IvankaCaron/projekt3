@@ -5,6 +5,7 @@ from django.contrib.gis.db import models
 
 class Spot(models.Model):
     name = models.CharField(max_length=20)
+    description = models.CharField(max_length=20, default='')
     location = models.PointField(srid=4326)
     objects = models.Manager()
 

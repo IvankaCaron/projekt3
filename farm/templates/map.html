@@ -38,7 +38,7 @@
 
 
             onEachFeature: function(feature,layer){
-                layer.bindPopup(feature.properties.name.toString());
+                layer.bindPopup(feature.properties.name.toString() + '<br>' + feature.properties.description.toString());
 			}
 
 
