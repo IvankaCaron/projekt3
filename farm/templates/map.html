@@ -62,6 +62,29 @@
 
         points.addTo(map);
 
+        var myLocation = {};
+        console.dir(navigator);
+         navigator.geolocation.getCurrentPosition(function (position) {
+             console.log('position callback called');
+            var lat = document.getElementById('id_latitude');
+            var lon = document.getElementById('id_longitude');
+            myLocation.lat = position.coords.latitude;
+            myLocation.lon = position.coords.longitude;
+
+            console.dir(myLocation);
+
+
+
+             var marker = new L.Marker(myLocation, {draggable:true});
+          map.addLayer(marker);
+           map.setView(new L.LatLng(myLocation.lat, myLocation.lon), 12);
+
+        });
+
+
+
+
+
 
         var baseLayers = {
 			"OSM": osm,

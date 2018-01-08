@@ -20,7 +20,32 @@
     </form>
      </div>
 
+    <script language="javascript" type="text/javascript">
 
+        var myLocation = {};
+
+
+         window.addEventListener("map:init", function (e) {
+             var detail = e.detail;
+
+              navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = document.getElementById('id_latitude');
+            var lon = document.getElementById('id_longitude');
+            myLocation.lat = position.coords.latitude;
+            myLocation.lon = position.coords.longitude;
+
+            var marker = new L.Marker(myLocation, {draggable:true});
+          detail.map.addLayer(marker);
+           detail.map.setView(new L.LatLng(myLocation.lat, myLocation.lon), 15);
+
+
+        });
+
+
+
+       console.dir(detail);
+    }, false);
+    </script>
 
 </div>
 {% endblock %}
