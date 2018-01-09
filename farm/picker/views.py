@@ -12,11 +12,9 @@ class MapPageView(TemplateView):
     template_name = 'map.html'
 
 
-
 def point_datasets(request):
     points = serialize('geojson', Spot.objects.all())
     return HttpResponse(points, content_type= 'json')
-
 
 
 class SpotForm(forms.ModelForm):
@@ -24,7 +22,7 @@ class SpotForm(forms.ModelForm):
 
     class Meta:
         model = Spot
-        fields = ('name', 'location', 'description')
+        fields = ('name', 'typeProduct', 'location', 'description')
         widgets = {'location': LeafletWidget()}
 
 

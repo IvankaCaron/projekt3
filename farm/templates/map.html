@@ -38,9 +38,11 @@
         var points = new L.GeoJSON.AJAX("{% url 'spot' %}", {
 
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, {
+
+                if (feature.properties.typeProduct == "1"){
+                    return L.marker(latlng, {
                     icon: L.icon({
-                        iconUrl: "/static/img/red.png",
+                        iconUrl: "/media/icon_image/red.png",
                         iconSize: [24, 28],
                         iconAnchor: [12, 28],
                         popupAnchor: [0, -25]
@@ -48,6 +50,49 @@
                     title: feature.properties.NAME,
                     riseOnHover: true
                 });
+                }
+
+
+                if (feature.properties.typeProduct == "2"){
+                    return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl: "/media/icon_image/green.png",
+                        iconSize: [24, 28],
+                        iconAnchor: [12, 28],
+                        popupAnchor: [0, -25]
+                    }),
+                    title: feature.properties.NAME,
+                    riseOnHover: true
+                });
+                }
+
+                 if (feature.properties.typeProduct == "4"){
+                    return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl: "/static/img/HONEY.svg",
+                        iconSize: [24, 28],
+                        iconAnchor: [12, 28],
+                        popupAnchor: [0, -25]
+                    }),
+                    title: feature.properties.NAME,
+                    riseOnHover: true
+                });
+                }
+
+                else
+                    return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl: "/static/img/APPLE.svg",
+                        iconSize: [24, 28],
+                        iconAnchor: [12, 28],
+                        popupAnchor: [0, -25]
+                    }),
+                    title: feature.properties.NAME,
+                    riseOnHover: true
+                });
+
+
+
             },
 
 
