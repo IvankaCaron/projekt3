@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.gis.db import models
+from django.contrib.auth.models import User
 
 class TypeProduct(models.Model):
     name = models.CharField(max_length=20)
@@ -12,6 +13,7 @@ class TypeProduct(models.Model):
 class Spot(models.Model):
     name = models.CharField(max_length=20)
     description = models.CharField(max_length=20, default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default='', related_name='user', null=True)
     typeProduct = models.ForeignKey(TypeProduct, on_delete=models.CASCADE, related_name='typeProduct', null=True)
     location = models.PointField(srid=4326)
     objects = models.Manager()

@@ -22,7 +22,7 @@ class SpotForm(forms.ModelForm):
 
     class Meta:
         model = Spot
-        fields = ('name', 'typeProduct', 'location', 'description')
+        fields = ('name', 'user', 'typeProduct', 'location', 'description')
         widgets = {'location': LeafletWidget()}
 
 

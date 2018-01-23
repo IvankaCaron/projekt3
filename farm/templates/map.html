@@ -152,9 +152,16 @@
             },
 
 
-            onEachFeature: function(feature,layer){
-                layer.bindPopup(feature.properties.name.toString() + '<br>' + feature.properties.description.toString());
-			}
+
+			onEachFeature: function (feature, layer) {
+                if(feature.properties.user != null) {
+                      layer.bindPopup(feature.properties.name.toString() + '<br>' + feature.properties.description.toString() + '<br>' + feature.properties.user);
+                }
+                else {
+
+                }
+                layer.bindPopup(feature.properties.name.toString() + '<br>' + feature.properties.description.toString() + '<br>' + feature.properties.user );
+            }
 
 
 
@@ -211,7 +218,7 @@
 
 
 
-
+        //layers
         var baseLayers = {
 			"OSM": osm,
 			"OpenTopoMap":OpenTopoMap

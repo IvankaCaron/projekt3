@@ -5,7 +5,7 @@ from leaflet.admin import LeafletGeoAdmin
 
 class SpotAdmin(LeafletGeoAdmin):
     pass
-    list_display = ('name', 'location', 'description')
+    list_display = ('name', 'location', 'description', 'user')
     search_fields = ('name', 'description')
 
 
